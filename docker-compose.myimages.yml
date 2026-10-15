@@ -1,0 +1,9 @@
+services:
+  vote:
+    image: abdulqudus0306/vote:latest
+
+  result:
+    image: abdulqudus0306/result:latest
+
+  worker:
+    image: abdulqudus0306/worker:latest

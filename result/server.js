@@ -17,8 +17,13 @@ io.on('connection', function (socket) {
   });
 });
 
+var dbHost = process.env.DB_HOST || 'db';
+var dbUsername = process.env.DB_USERNAME || 'postgres';
+var dbPassword = process.env.DB_PASSWORD || 'postgres';
+var dbName = process.env.DB_NAME || 'postgres';
+
 var pool = new Pool({
-  connectionString: 'postgres://postgres:postgres@db/postgres'
+  connectionString: `postgres://${dbUsername}:${dbPassword}@${dbHost}/${dbName}`
 });
 
 async.retry(
