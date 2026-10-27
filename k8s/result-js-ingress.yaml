@@ -1,0 +1,32 @@
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: result-js-ingress
+  namespace: voting-app
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /angular.min.js
+            pathType: Exact
+            backend:
+              service:
+                name: result-service
+                port:
+                  number: 80
+          - path: /app.js
+            pathType: Exact
+            backend:
+              service:
+                name: result-service
+                port:
+                  number: 80
+          - path: /socket.io.js
+            pathType: Exact
+            backend:
+              service:
+                name: result-service
+                port:
+                  number: 80
